@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class FileManager {
 
-    public static void ReadFile(){
+    public static   String ReadFile(){
         try{
             File myFile = new File("C:\\Users\\B00835054\\Downloads\\Read.txt");
             Scanner myReader = new Scanner(myFile);
