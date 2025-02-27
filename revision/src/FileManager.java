@@ -7,18 +7,20 @@ import java.io.IOException;
 public class FileManager {
 
     public static   String ReadFile(){
+        StringBuilder content = new StringBuilder();
         try{
             File myFile = new File("C:\\Users\\B00835054\\Downloads\\Read.txt");
             Scanner myReader = new Scanner(myFile);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                System.out.println(data);
+                content.append(data).append("\n");
             }
             myReader.close();
         }catch(FileNotFoundException e){
             System.out.println("an error occurred");
             e.printStackTrace();
         }
+        return content.toString();
 
     }
 

@@ -1,4 +1,4 @@
-import com.google.common.annotations.VisibleForTesting;
+
 import org.junit.Test;
 
 import java.io.File;
