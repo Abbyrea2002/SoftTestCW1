@@ -14,21 +14,35 @@ public class FileManagerTest {
         //call write method
         FileManager.WriteToFile();
         //path to file
-        String filePath = "C:\\Users\\B00835054\\Downloads\\Write.txt";
+        String filePath = "C:\\Users\\abbyr\\OneDrive\\Documents\\write.txt";
         File file = new File(filePath);
 
         assertTrue(file.exists(), "File should exist after writing.");
 
         // Read the file content
-        String fileContent = FileManager.ReadFile();
+        String fileContent = FileManager.ReadFile(filePath);
+
 
         // Assert the expected content
-        assertEquals("Files in java might be tricky, but its fun enough!", fileContent.toString(), "File content should match expected output.");
+        assertEquals("Files in java might be tricky, but its fun enough!", fileContent );
 
         // Cleanup (optional)
         file.delete();
 
 
     }
+    @Test
+    public void testReadFile(){
+        String filePath = "C:\\Users\\abbyr\\OneDrive\\Documents\\read.txt";
+        String content = FileManager.ReadFile(filePath);
 
+        assertEquals("this file should be read", content);
+    }
+    @Test
+    public void testDeleteFile(){
+        String filePath = "C:\\Users\\abbyr\\OneDrive\\Documents\\delete.txt";
+        FileManager.DeleteFile();
+        File file = new File(filePath);
+        assertFalse(file.exists());
+    }
 }

@@ -6,28 +6,30 @@ import java.io.IOException;
 
 public class FileManager {
 
-    public static   String ReadFile(){
+    public static   String ReadFile(String filePath){
         StringBuilder content = new StringBuilder();
         try{
-            File myFile = new File("C:\\Users\\B00835054\\Downloads\\Read.txt");
+            File myFile = new File(filePath);
             Scanner myReader = new Scanner(myFile);
+            System.out.print("Sucessfully read file");
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                content.append(data).append("\n");
+                content.append(data);
+
             }
             myReader.close();
         }catch(FileNotFoundException e){
             System.out.println("an error occurred");
             e.printStackTrace();
         }
-        return content.toString();
+        return content.toString().trim();
 
     }
 
     public static void WriteToFile(){
         try{
-            FileWriter myWriter = new FileWriter("C:\\Users\\B00835054\\Downloads\\Write.txt");
-            myWriter.write("Files in java might be tricky, but its fun enough!");
+            FileWriter myWriter = new FileWriter("C:\\Users\\abbyr\\OneDrive\\Documents\\write.txt");
+            myWriter.write("Files in java might be tricky, but its fun enough!\n");
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
         }catch(IOException e){
@@ -38,7 +40,7 @@ public class FileManager {
     }
 
     public static void DeleteFile(){
-        File myObject = new File("C:\\Users\\B00835054\\Downloads\\Delete.txt");
+        File myObject = new File("C:\\Users\\abbyr\\OneDrive\\Documents\\delete.txt");
         if(myObject.delete()){
             System.out.println("Deleted the file: " + myObject.getName());
         }else{
