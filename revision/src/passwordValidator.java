@@ -11,7 +11,7 @@ public class passwordValidator
       //Regex to check valid password
       String regex = "^(?=.*[0-9])" //must contain least 1 digit
             +"(?=.*[a-z])(?=.*[A-Z])"//1 cap or lower cap letter
-            +"(?=.*[@#$%^&+=!?SA])" // 1 special char
+            +"(?=.*[@#$%^&+=!?])" // 1 special char
             +"(?=\\S+$).{8,20}$"; //no spaces atleast 8 char most 20
       //compile ReGex
       Pattern p = Pattern.compile(regex);
