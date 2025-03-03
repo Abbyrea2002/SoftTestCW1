@@ -11,6 +11,8 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class FahrenhietCelsiusConverterTest
 {
+
+   //runs test multiple times with diff inputs reduces redundancy
   @ParameterizedTest
   @CsvSource({
         "0, 32",
@@ -18,7 +20,8 @@ public class FahrenhietCelsiusConverterTest
         "100, 212",
   })
    void shouldConvertCelsiusToFahrenheit(int celsius, int fahrenheit) {
-
+      //improves readability and flexibility of assertions
+     //compares actual value with expected condition
       assertThat(FahrenheitCelsiusConverter.toFahrenheit(celsius)).isEqualTo(fahrenheit);
 
    }
